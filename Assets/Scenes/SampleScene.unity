@@ -340,12 +340,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 834dfff4c06047c458a330151c3fdb64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainCam: {fileID: 1887565804}
   Player: {fileID: 1638295544}
   StartPosition: {fileID: 246452168}
   FarAwayPosition: {fileID: 749788539}
   StartVcam: {fileID: 1014246156}
   FarAwayVcam: {fileID: 1535341619}
-  MainCam: {fileID: 1887565804}
 --- !u!4 &695531932
 Transform:
   m_ObjectHideFlags: 0

@@ -1,35 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Cinemachine;
+﻿using Cinemachine;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public Animator MainCam;
     public GameObject Player = default;
     public Transform StartPosition = default;
     public Transform FarAwayPosition = default;
     public CinemachineVirtualCameraBase StartVcam;
     public CinemachineVirtualCameraBase FarAwayVcam;
 
-    public Animator MainCam;
-
-    private bool isFar = false;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private bool _isFar = false;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.anyKeyDown && Input.GetKey(KeyCode.Space))
         {
-            if (isFar)
+            if (_isFar)
             {
-                isFar = false;
+                _isFar = false;
 
+                // Move to start position
                 Player.transform.position = StartPosition.position;
                 MainCam.SetTrigger("MoveToStart");
                 StartVcam.Follow = Player.transform;
@@ -37,7 +29,9 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                isFar = true;
+                _isFar = true;
+
+                // Move to far away position
                 Player.transform.position = FarAwayPosition.position;
                 MainCam.SetTrigger("MoveToFarAway");
                 StartVcam.Follow = default;
